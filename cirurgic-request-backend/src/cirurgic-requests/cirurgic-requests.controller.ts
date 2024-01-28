@@ -7,6 +7,7 @@ import {
   Param,
   Delete,
   ParseIntPipe,
+  HttpCode,
 } from '@nestjs/common';
 import { CirurgicRequestsService } from './cirurgic-requests.service';
 import { CreateCirurgicRequestDto } from './dto/create-cirurgic-request.dto';
@@ -43,6 +44,7 @@ export class CirurgicRequestsController {
     return this.cirurgicRequestsService.update(id, updateCirurgicRequestDto);
   }
 
+  @HttpCode(204)
   @Delete(':id')
   remove(@Param('id', new ParseIntPipe()) id: number) {
     return this.cirurgicRequestsService.remove(id);

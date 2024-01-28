@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsString, IsDateString } from 'class-validator';
+import { IsNotEmpty, IsString, IsDateString, MaxLength } from 'class-validator';
 
 export class CreateCirurgicRequestDto {
   @IsNotEmpty()
@@ -15,6 +15,7 @@ export class CreateCirurgicRequestDto {
 
   @IsNotEmpty()
   @IsString()
+  @MaxLength(100)
   generalNotes: string;
 
   @IsNotEmpty()
