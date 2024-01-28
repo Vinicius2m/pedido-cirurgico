@@ -1,0 +1,23 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model CirurgicRequest {
+  id           Int            @id @default(autoincrement())
+  room         String
+  procedures   String
+  doctor       String
+  patient      String
+  hospital     String
+  surgeryDate  DateTime
+  createdAt    DateTime       @default(now())
+  generalNotes String         @db.VarChar(100)
+}

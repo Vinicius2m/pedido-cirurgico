@@ -1,0 +1,8 @@
+{
+  "prettier.configPath": "./cirurgic-request-frontend/.prettierrc.cjs",
+  "eslint.workingDirectories": [
+    {
+      "mode": "auto"
+    }
+  ]
+}
