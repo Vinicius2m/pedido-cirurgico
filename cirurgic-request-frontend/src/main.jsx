@@ -2,11 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { App } from './pages/App';
 import { MyThemeProvider } from './styles/MyThemeProvider';
+import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <MyThemeProvider>
-      <App />
-    </MyThemeProvider>
+    <BrowserRouter>
+      <MyThemeProvider>
+        <App />
+      </MyThemeProvider>
+    </BrowserRouter>
   </React.StrictMode>,
 );

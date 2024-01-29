@@ -1,16 +1,14 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import * as Styled from './styles';
+import { Route, Routes } from 'react-router-dom';
+import { Home } from '../Home';
+import { Layout } from '../../components/Layout';
 
 export const App = () => {
   return (
-    <BrowserRouter>
+    <Layout>
       <Routes>
-        <Route
-          path="/"
-          element={<Styled.Container>Olá mundo</Styled.Container>}
-        />
+        <Route path="/" element={<Home />} />
         <Route path="*" element={<h1>Página não encontrada</h1>} />
       </Routes>
-    </BrowserRouter>
+    </Layout>
   );
 };
