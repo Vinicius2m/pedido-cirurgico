@@ -1,7 +1,7 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { CreateCirurgicRequestDto } from './dto/create-cirurgic-request.dto';
 import { UpdateCirurgicRequestDto } from './dto/update-cirurgic-request.dto';
-import { PrismaService } from 'src/prisma/prisma.service';
+import { PrismaService } from '../prisma/prisma.service';
 
 @Injectable()
 export class CirurgicRequestsService {
@@ -28,6 +28,13 @@ export class CirurgicRequestsService {
   }
 
   update(id: number, updateCirurgicRequestDto: UpdateCirurgicRequestDto) {
+    Object.keys(updateCirurgicRequestDto).forEach(
+      (key) =>
+        (updateCirurgicRequestDto[key] === null ||
+          updateCirurgicRequestDto[key] === undefined) &&
+        delete updateCirurgicRequestDto[key],
+    );
+
     if (Object.keys(updateCirurgicRequestDto).length === 0) {
       throw new BadRequestException('At least one field must be provided');
     }
