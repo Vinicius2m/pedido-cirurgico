@@ -9,62 +9,44 @@ export const GlobalStyles = createGlobalStyle`
         font-family: 'Nunito', sans-serif;
     }
 
-    :root {
-        --bg-primary-color: #0092DF;
-        --bg-secondary-color: #053F5E;
-        --default-black: #232323;
-        --default-yellow: #FFEA29;
-        --default-white: #F7F9F9;
-        --default-gradient: linear-gradient(0deg, #053F5E, #0092DF);
-
-        --toastify-color-light: #fff;
-        --toastify-color-dark: #121212;
-        --toastify-color-info: #3498db;
-        --toastify-color-success: purple;
-        --toastify-color-warning: #f1c40f;
-        --toastify-color-error: #e74c3c;
-
-    }
-
     .Toastify__toast-theme--colored.Toastify__toast--success {
-        color: var(--toastify-text-color-success);
-        background: var(--default-yellow);
-        border: 2px solid var(--default-black);
+        color: ${({ theme }) => theme.colors.toastifyColorSuccess};
+        background: ${({ theme }) => theme.colors.defaultYellow};
+        border: 2px solid ${({ theme }) => theme.colors.dark};
         border-radius: 10px;
-        color: var(--default-black);
+        color: ${({ theme }) => theme.colors.dark};
 
         .Toastify__progress-bar {
-            background: var(--default-black);
+            background: ${({ theme }) => theme.colors.dark};
         }
 
         .Toastify__close-button--colored {
 
-            color: var(--default-black);
+            color: ${({ theme }) => theme.colors.dark};
         }
     }
 
     .Toastify__toast-theme--colored.Toastify__toast--error, .Toastify__toast-theme--colored.Toastify__toast--warning {
-        color: var(--toastify-text-color-success);
-        background: var(--default-black);
-        border: 2px solid var(--default-yellow);
+        color: ${({ theme }) => theme.colors.toastifyColorSuccess};
+        background: ${({ theme }) => theme.colors.dark};
+        border: 2px solid ${({ theme }) => theme.colors.defaultYellow};
         border-radius: 10px;
-        color: var(--default-yellow);
+        color: ${({ theme }) => theme.colors.defaultYellow};
 
         .Toastify__progress-bar {
-            background: var(--default-yellow);
+            background: ${({ theme }) => theme.colors.defaultYellow};
         }
 
         .Toastify__close-button--colored {
 
-            color: var(--default-black);
+            color: ${({ theme }) => theme.colors.dark};
         }
     }
 
     body {
-
-        background: var(--default-gradient);
+        background: ${({ theme }) => theme.colors.defaultGradient};
         background-attachment: fixed;
-        color: var(--default-white);
+        color: ${({ theme }) => theme.colors.light};
         min-height: 100vh;
         height: 100%;
     }

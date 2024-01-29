@@ -1,12 +1,20 @@
 export const theme = {
   colors: {
-    primary: '#007bff',
-    secondary: '#6c757d',
+    primary: '#0092DF',
+    secondary: '#053F5E',
+    defaultYellow: '#FFEA29',
     success: '#28a745',
     danger: '#dc3545',
     warning: '#ffc107',
     info: '#17a2b8',
-    light: '#f8f9fa',
-    dark: '#343a40'
+    light: '#F7F9F9',
+    dark: '#232323',
+    defaultGradient: 'linear-gradient(0deg, #053F5E, #0092DF)',
+    toastifyColorLight: ' #fff',
+    toastifyColorDark: ' #121212',
+    toastifyColorInfo: ' #3498db',
+    toastifyColorSuccess: ' purple',
+    toastifyColorWarning: ' #f1c40f',
+    toastifyColorError: ' #e74c3c',
   },
-}
+};
