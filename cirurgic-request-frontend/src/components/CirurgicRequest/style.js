@@ -2,45 +2,46 @@ import styled from 'styled-components';
 
 export const Card = styled.div`
   background-color: ${({ theme }) => theme.colors.secondary};
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   border-radius: 10px;
-  padding: 5px;
-  height: fit-content;
+  padding: 5px 10px;
   margin: 10px;
+  max-width: 350px;
 
   span {
-    font-size: 28px;
+    font-size: 24px;
     margin: 10px;
   }
 
   p {
-    font-size: 24px;
+    font-size: 20px;
     margin: 10px;
   }
 
   button {
     margin: 5px;
   }
+
+  .card-buttons-container {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
   @media (max-width: 800px) {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    align-items: center;
     min-width: 250px;
     width: auto;
-    height: 250px;
-    span {
-      font-size: 24px;
-    }
-    p {
-      font-size: 20px;
-    }
   }
 
   @media (max-width: 280px) {
     min-width: 220px;
   }
 `;
+
 export const CardButton = styled.button`
   width: 110px;
   height: 40px;
@@ -52,12 +53,12 @@ export const CardButton = styled.button`
   background-color: ${({ theme }) => theme.colors.defaultYellow};
   color: ${({ theme }) => theme.colors.dark};
 
-  :hover {
+  &:hover {
     filter: brightness(0.9);
   }
   @media (max-width: 800px) {
     width: 90px;
-    :hover {
+    &:hover {
       filter: unset;
     }
   }
@@ -90,12 +91,12 @@ export const DeleteButton = styled.button`
   background-color: ${({ theme }) => theme.colors.dark};
   color: ${({ theme }) => theme.colors.defaultYellow};
 
-  :hover {
+  &:hover {
     filter: brightness(0.9);
   }
   @media (max-width: 800px) {
     width: 90px;
-    :hover {
+    &:hover {
       filter: unset;
     }
   }

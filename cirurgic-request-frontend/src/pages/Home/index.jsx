@@ -48,7 +48,6 @@ export const Home = () => {
     if (data.surgeryDate) {
       data.surgeryDate = moment(data.surgeryDate).toISOString();
     }
-    console.log(data);
     createCirurgicRequest(data);
   };
 

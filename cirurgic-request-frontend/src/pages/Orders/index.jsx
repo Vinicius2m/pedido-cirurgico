@@ -15,13 +15,16 @@ export const Orders = () => {
     <OrdersContainer>
       <h2>Pedidos Cirúrgicos:</h2>
       <div className="right_container">
-        {cirurgicRequests &&
+        {cirurgicRequests.length ? (
           cirurgicRequests.map((cirurgicRequest) => (
             <CirurgicRequestCard
               key={cirurgicRequest.id}
               cirurgicRequest={cirurgicRequest}
             />
-          ))}
+          ))
+        ) : (
+          <p>Nenhum pedido encontrado</p>
+        )}
       </div>
     </OrdersContainer>
   );

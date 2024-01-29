@@ -1,60 +1,83 @@
 import { useState } from 'react';
-
-import { FiChevronsLeft } from 'react-icons/fi';
-import { FiActivity } from 'react-icons/fi';
-
-import { FiEdit3 } from 'react-icons/fi';
-import { FiGrid } from 'react-icons/fi';
+import {
+  FiChevronsLeft,
+  FiActivity,
+  FiEdit3,
+  FiGrid,
+  FiArrowUp,
+} from 'react-icons/fi';
 import { useLocation } from 'react-router-dom';
 import {
-  SDivider,
+  Divider,
   SLink,
-  SLinkContainer,
-  SLinkIcon,
-  SLinkLabel,
+  LinkContainer,
+  LinkIcon,
+  LinkLabel,
   SSidebar,
-  SSidebarButton,
-  STitle,
+  SidebarButton,
+  Title,
 } from './style';
 
 export const Sidebar = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const { pathname } = useLocation();
 
+  const handleScrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <SSidebar isOpen={sidebarOpen}>
       <>
-        <SSidebarButton
+        <SidebarButton
           isOpen={sidebarOpen}
           onClick={() => setSidebarOpen((p) => !p)}
         >
           <FiChevronsLeft />
-        </SSidebarButton>
+        </SidebarButton>
       </>
-      <STitle>
-        <SLinkIcon>
+      <Title to="/">
+        <LinkIcon>
           <FiActivity />
-        </SLinkIcon>
+        </LinkIcon>
         {sidebarOpen && (
           <>
-            <SLinkLabel>App Pedidos Cirúrgicos</SLinkLabel>
+            <LinkLabel>App Pedidos Cirúrgicos</LinkLabel>
           </>
         )}
-      </STitle>
-      <SDivider />
+      </Title>
+      <Divider />
       {linksArray.map(({ icon, label, to }) => (
-        <SLinkContainer key={label} isActive={pathname === to}>
+        <LinkContainer key={label} isActive={pathname === to}>
           <SLink to={to} style={!sidebarOpen ? { width: `fit-content` } : {}}>
-            <SLinkIcon>{icon}</SLinkIcon>
+            <LinkIcon>{icon}</LinkIcon>
             {sidebarOpen && (
               <>
-                <SLinkLabel>{label}</SLinkLabel>
+                <LinkLabel>{label}</LinkLabel>
               </>
             )}
           </SLink>
-        </SLinkContainer>
+        </LinkContainer>
       ))}
-      <SDivider />
+      <Divider />
+      <LinkContainer
+        style={{
+          position: 'fixed',
+          bottom: 0,
+          width: sidebarOpen ? '130px' : '50px',
+        }}
+      >
+        <SLink onClick={handleScrollToTop}>
+          <LinkIcon>
+            <FiArrowUp />
+          </LinkIcon>
+          {sidebarOpen && (
+            <>
+              <LinkLabel>Ir ao Topo</LinkLabel>
+            </>
+          )}
+        </SLink>
+      </LinkContainer>
     </SSidebar>
   );
 };

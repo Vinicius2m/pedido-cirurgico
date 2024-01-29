@@ -7,10 +7,14 @@ export const SSidebar = styled.div`
     min-height: 100vh;
     padding: 24px;
 
+    display: flex;
+    flex-direction: column;
+
+
     position: relative;
 `;
 
-export const SSidebarButton = styled.button`
+export const SidebarButton = styled.button`
     position: absolute;
     border: none;
     top: 48px;
@@ -28,19 +32,19 @@ export const SSidebarButton = styled.button`
     transform: ${({ isOpen }) => (!isOpen ? `rotate(180deg)` : `initial`)};
 `;
 
-export const SDivider = styled.div`
+export const Divider = styled.div`
     height: 1px;
     width: 100%;
     background: ${({ theme }) => theme.colors.light};
     margin: 24px 0;
 `;
 
-export const SLinkContainer = styled.div`
+export const LinkContainer = styled.div`
     background: ${({ theme, isActive }) => (!isActive ? `transparent` : theme.colors.primary)};
     border-radius: 6px;
     margin: 8px 0;
 
-    :hover {
+    &:hover {
       border-radius: 6px;
         background-color: ${({ theme }) => theme.colors.dark};
     }
@@ -55,7 +59,7 @@ export const SLink = styled(Link)`
     padding: calc(8px - 2px) 0;
 `;
 
-export const STitle = styled(Link)`
+export const Title = styled(Link)`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -65,7 +69,7 @@ export const STitle = styled(Link)`
     padding: calc(8px - 2px) 0;
 `;
 
-export const SLinkIcon = styled.div`
+export const LinkIcon = styled.div`
     padding: 8px 16px;
     display: flex;
 
@@ -74,7 +78,7 @@ export const SLinkIcon = styled.div`
     }
 `;
 
-export const SLinkLabel = styled.span`
+export const LinkLabel = styled.span`
     display: block;
     flex: 1;
     margin-left: 8px;

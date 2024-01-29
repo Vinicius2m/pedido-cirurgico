@@ -1,26 +1,36 @@
 import { useCirurgicRequests } from '../../providers/cirurgicRequests';
 import { Card, CardButton, DeleteButton } from './style';
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 
 export const CirurgicRequestCard = ({ cirurgicRequest }) => {
-  const { removeCirurgicRequest, updateCirurgicRequest } =
-    useCirurgicRequests();
+  const { removeCirurgicRequest } = useCirurgicRequests();
+  const history = useNavigate();
 
   const handleRemove = (id) => {
     removeCirurgicRequest(id);
   };
 
-  const handleUpdate = (id) => {
-    updateCirurgicRequest(id, {});
+  const handleDetails = (id) => {
+    history(`/pedido/${id}`);
   };
 
   return (
     <Card>
       <span>Paciente: {cirurgicRequest.patient} </span>
-      <p>{cirurgicRequest.doctor} </p>
-      <div>
-        <CardButton onClick={() => handleUpdate(cirurgicRequest.id)}>
-          Editar
+      <p>Médico: {cirurgicRequest.doctor} </p>
+      <p>Procedimento: {cirurgicRequest.procedures} </p>
+      <p>
+        Data da cirurgia:{' '}
+        {new Date(cirurgicRequest.surgeryDate).toLocaleDateString('pt-BR')}{' '}
+      </p>
+      <p>Hospital: {cirurgicRequest.hospital} </p>
+      <div className="card-buttons-container">
+        <CardButton
+          onClick={() => handleDetails(cirurgicRequest.id)}
+          id="details"
+        >
+          Detalhes
         </CardButton>
         <DeleteButton
           onClick={() => handleRemove(cirurgicRequest.id)}

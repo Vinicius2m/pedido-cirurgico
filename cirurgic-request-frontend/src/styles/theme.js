@@ -9,6 +9,8 @@ export const theme = {
     info: '#17a2b8',
     light: '#F7F9F9',
     dark: '#232323',
+    lightGray: '#d3d3d3',
+    darkGray: '#343A40',
     defaultGradient: 'linear-gradient(0deg, #053F5E, #0092DF)',
     toastifyColorLight: ' #fff',
     toastifyColorDark: ' #121212',

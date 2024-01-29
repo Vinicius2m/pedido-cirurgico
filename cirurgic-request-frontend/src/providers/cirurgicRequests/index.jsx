@@ -25,6 +25,11 @@ export const CirurgicRequestsProvider = ({ children }) => {
     getCirurgicRequests();
   }, [getCirurgicRequests]);
 
+  const getOneCirurgicRequest = useCallback(async (id) => {
+    const response = await api.get(`/cirurgic-requests/${id}`);
+    return response.data;
+  }, []);
+
   const createCirurgicRequest = useCallback(
     (newCirurgicRequest) => {
       api
@@ -41,12 +46,12 @@ export const CirurgicRequestsProvider = ({ children }) => {
   );
 
   const updateCirurgicRequest = useCallback(
-    (id, updatedRequest) => {
+    async (id, updatedRequest) => {
       api
         .patch(`/cirurgic-requests/${id}`, updatedRequest)
-        .then(() => {
-          toast.info('Pedido atualizado');
-          getCirurgicRequests();
+        .then(async () => {
+          toast.success('Pedido atualizado');
+          await getCirurgicRequests();
         })
         .catch(() => {
           toast.error('Erro ao atualizar pedido');
@@ -72,6 +77,7 @@ export const CirurgicRequestsProvider = ({ children }) => {
       value={{
         cirurgicRequests,
         getCirurgicRequests,
+        getOneCirurgicRequest,
         createCirurgicRequest,
         updateCirurgicRequest,
         removeCirurgicRequest,
