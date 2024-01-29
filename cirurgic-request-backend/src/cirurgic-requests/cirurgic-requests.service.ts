@@ -45,6 +45,8 @@ export class CirurgicRequestsService {
       'surgeryDate',
       'procedures',
       'hospital',
+      'room',
+      'generalNotes',
     ];
 
     const fields = Object.keys(updateCirurgicRequestDto);
