@@ -1,0 +1,89 @@
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useState,
+} from 'react';
+import PropTypes from 'prop-types';
+import api from '../../services/api';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+export const CirurgicRequestsContext = createContext();
+
+export const CirurgicRequestsProvider = ({ children }) => {
+  const [cirurgicRequests, setCirurgicRequests] = useState([]);
+
+  const getCirurgicRequests = useCallback(async () => {
+    await api.get('/cirurgic-requests').then((response) => {
+      setCirurgicRequests(response.data);
+    });
+  }, []);
+
+  useEffect(() => {
+    getCirurgicRequests();
+  }, [getCirurgicRequests]);
+
+  const createCirurgicRequest = useCallback(
+    (newCirurgicRequest) => {
+      api
+        .post('/cirurgic-requests', newCirurgicRequest)
+        .then(() => {
+          toast.success('Pedido adicionado');
+          getCirurgicRequests();
+        })
+        .catch(() => {
+          toast.error('Erro ao adicionar pedido');
+        });
+    },
+    [getCirurgicRequests],
+  );
+
+  const updateCirurgicRequest = useCallback(
+    (id, updatedRequest) => {
+      api
+        .patch(`/cirurgic-requests/${id}`, updatedRequest)
+        .then(() => {
+          toast.info('Pedido atualizado');
+          getCirurgicRequests();
+        })
+        .catch(() => {
+          toast.error('Erro ao atualizar pedido');
+        });
+    },
+    [getCirurgicRequests],
+  );
+
+  const removeCirurgicRequest = (id) => {
+    api
+      .delete(`/cirurgic-requests/${id}`)
+      .then(() => {
+        toast.warn('Pedido removido');
+        getCirurgicRequests();
+      })
+      .catch(() => {
+        toast.error('Erro ao remover pedido');
+      });
+  };
+
+  return (
+    <CirurgicRequestsContext.Provider
+      value={{
+        cirurgicRequests,
+        getCirurgicRequests,
+        createCirurgicRequest,
+        updateCirurgicRequest,
+        removeCirurgicRequest,
+      }}
+    >
+      {children}
+    </CirurgicRequestsContext.Provider>
+  );
+};
+
+CirurgicRequestsProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+
+export const useCirurgicRequests = () => useContext(CirurgicRequestsContext);

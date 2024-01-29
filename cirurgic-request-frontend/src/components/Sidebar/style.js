@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const SSidebar = styled.div`
     width: ${({ isOpen }) => (!isOpen ? `auto` : '300px')};
     background: ${({ theme }) => theme.colors.secondary};
-    height: 100vh;
+    min-height: 100vh;
     padding: 24px;
 
     position: relative;

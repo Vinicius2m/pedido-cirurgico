@@ -3,9 +3,8 @@ import { useState } from 'react';
 import { FiChevronsLeft } from 'react-icons/fi';
 import { FiActivity } from 'react-icons/fi';
 
-import { AiOutlineApartment, AiOutlineHome } from 'react-icons/ai';
-import { MdOutlineAnalytics } from 'react-icons/md';
-import { BsPeople } from 'react-icons/bs';
+import { FiEdit3 } from 'react-icons/fi';
+import { FiGrid } from 'react-icons/fi';
 import { useLocation } from 'react-router-dom';
 import {
   SDivider,
@@ -62,23 +61,13 @@ export const Sidebar = () => {
 
 const linksArray = [
   {
-    label: 'Home',
-    icon: <AiOutlineHome />,
+    label: 'Novo Pedido',
+    icon: <FiEdit3 />,
     to: '/',
   },
   {
-    label: 'Statistics',
-    icon: <MdOutlineAnalytics />,
-    to: '/statistics',
-  },
-  {
-    label: 'Customers',
-    icon: <BsPeople />,
-    to: '/customers',
-  },
-  {
-    label: 'Diagrams',
-    icon: <AiOutlineApartment />,
-    to: '/diagrams',
+    label: 'Seus Pedidos',
+    icon: <FiGrid />,
+    to: '/pedidos',
   },
 ];
