@@ -55,6 +55,7 @@ export const CirurgicRequestsProvider = ({ children }) => {
         })
         .catch(() => {
           toast.error('Erro ao atualizar pedido');
+          return new Error();
         });
     },
     [getCirurgicRequests],

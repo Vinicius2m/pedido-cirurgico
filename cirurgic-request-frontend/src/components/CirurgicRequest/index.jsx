@@ -5,14 +5,14 @@ import { useNavigate } from 'react-router-dom';
 
 export const CirurgicRequestCard = ({ cirurgicRequest }) => {
   const { removeCirurgicRequest } = useCirurgicRequests();
-  const history = useNavigate();
+  const navigate = useNavigate();
 
   const handleRemove = (id) => {
     removeCirurgicRequest(id);
   };
 
   const handleDetails = (id) => {
-    history(`/pedido/${id}`);
+    navigate(`/pedido/${id}`);
   };
 
   return (
@@ -26,18 +26,18 @@ export const CirurgicRequestCard = ({ cirurgicRequest }) => {
       </p>
       <p>Hospital: {cirurgicRequest.hospital} </p>
       <div className="card-buttons-container">
-        <CardButton
-          onClick={() => handleDetails(cirurgicRequest.id)}
-          id="details"
-        >
-          Detalhes
-        </CardButton>
         <DeleteButton
           onClick={() => handleRemove(cirurgicRequest.id)}
           id="delete"
         >
           Remover
         </DeleteButton>
+        <CardButton
+          onClick={() => handleDetails(cirurgicRequest.id)}
+          id="details"
+        >
+          Detalhes
+        </CardButton>
       </div>
     </Card>
   );

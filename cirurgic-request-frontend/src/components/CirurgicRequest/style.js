@@ -7,8 +7,6 @@ export const Card = styled.div`
   gap: 10px;
   border-radius: 10px;
   padding: 5px 10px;
-  margin: 10px;
-  max-width: 350px;
 
   span {
     font-size: 24px;

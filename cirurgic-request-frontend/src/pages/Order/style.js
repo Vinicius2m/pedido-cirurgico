@@ -1,160 +1,167 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  width: 55vw;
-  min-width: 260px;
-  max-width: 500px;
-  min-height: 300px;
-  background: #0092DF;
-  border-radius: 10px;
-  margin-top: 20px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  filter: drop-shadow(0px 6px 5px #3F3B3B);
+display: flex;
+justify-content: center;
+width: 100%;
 
-  h2 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-
-  span {
-    font-size: 24px;
-  }
-
-  p {
-    font-size: 20px;
-    margin: 10px 0;
-  }
-
-  .card-buttons-container {
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-    justify-content: space-evenly;
-  }
-
-  #cancel-button {
-    background: ${({ theme }) => theme.colors.defaultYellow};
-    color: ${({ theme }) => theme.colors.dark};
-    height: 40px;
-    width: 130px;
-    border: none;
-    font-weight: bold;
+  section {
+    width: 55vw;
+    min-width: 260px;
+    max-width: 500px;
+    min-height: 300px;
+    background: #0092DF;
     border-radius: 10px;
-    font-size: 16px;
     margin-top: 20px;
-    border-radius: 10px;
-    font-size: 16px;
-    font-weight: 600;
-    border: transparent;
-    background-color: ${({ theme }) => theme.colors.dark};
-    color: ${({ theme }) => theme.colors.defaultYellow};
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    filter: drop-shadow(0px 6px 5px #3F3B3B);
 
-    &:hover {
-      filter: brightness(0.9);
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
     }
 
-    @media (max-width: 800px) {
-      width: 90px;
-      &:hover {
-        filter: unset;
-      }
-    }
-  }
-
-  #clear-all-button {
-    background: ${({ theme }) => theme.colors.danger};
-    color: ${({ theme }) => theme.colors.light};
-    height: 40px;
-    width: 130px;
-    border: none;
-    font-weight: bold;
-    border-radius: 10px;
-    font-size: 16px;
-    border-radius: 10px;
-    font-size: 16px;
-    font-weight: 600;
-    border: transparent;
-
-    &:hover {
-      filter: brightness(0.9);
+    span {
+      font-size: 24px;
     }
 
-    @media (max-width: 800px) {
-      width: 130px;
-      &:hover {
-        filter: unset;
-      }
+    p {
+      font-size: 20px;
+      margin: 10px 0;
     }
-  }
 
-  form {
-      width: 100%;
+    .card-buttons-container {
       display: flex;
-      flex-direction: column;
-      align-items: center;
+      flex-direction: row;
       gap: 20px;
+      justify-content: space-evenly;
+    }
 
-
-      > div{
-          width: 100%;
-          display: flex;
-          flex-direction: column;
-          justify-content: flex-end;
-          min-height: 67px;
-
-          label {
-              display: block;
-              font-size: 14px;
-              line-height: 12px;
-              color: ${({ theme }) => theme.colors.defaultYellow};
-              text-align: left;
-              margin-bottom: 2px;
-          }
-      }
-  }
-
-  input, textarea {
-      width: 100%;
-      height: 48px;
-      border-radius: 5px;
-      font-size: 17px;
-      padding: 0 4px;
+    #cancel-button {
+      background: ${({ theme }) => theme.colors.defaultYellow};
+      color: ${({ theme }) => theme.colors.dark};
+      height: 40px;
+      width: 130px;
       border: none;
-      outline: none;
-      border: 2px solid transparent;
-      resize: none;
+      font-weight: bold;
+      border-radius: 10px;
+      font-size: 16px;
+      margin-top: 20px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 600;
+      border: transparent;
+      background-color: ${({ theme }) => theme.colors.dark};
+      color: ${({ theme }) => theme.colors.defaultYellow};
 
-      :focus {
-          border: 2px solid ${({ theme }) => theme.colors.defaultYellow};
-      }
-  }
-
-  #generalNotes_field {
-      min-height: 150px;
-  }
-
-
-
-
-  @media screen and (max-width: 500px){
-
-      form {
-          gap: 10px;
+      &:hover {
+        filter: brightness(0.9);
       }
 
-      .flex {
-          gap: 8px;
+      @media (max-width: 800px) {
+        width: 90px;
+        &:hover {
+          filter: unset;
+        }
+      }
+    }
 
-          label {
-              text-align: center;
-          }
+    #clear-all-button {
+      background: ${({ theme }) => theme.colors.danger};
+      color: ${({ theme }) => theme.colors.light};
+      height: 40px;
+      width: 130px;
+      border: none;
+      font-weight: bold;
+      border-radius: 10px;
+      font-size: 16px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 600;
+      border: transparent;
+
+      &:hover {
+        filter: brightness(0.9);
       }
 
-      input {
-          font-size: 16px;
+      @media (max-width: 800px) {
+        width: 130px;
+        &:hover {
+          filter: unset;
+        }
       }
+    }
+
+    form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+
+
+        > div{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            min-height: 67px;
+
+            label {
+                display: block;
+                font-size: 14px;
+                line-height: 12px;
+                color: ${({ theme }) => theme.colors.defaultYellow};
+                text-align: left;
+                margin-bottom: 2px;
+            }
+        }
+    }
+
+    input, textarea {
+        width: 100%;
+        height: 48px;
+        border-radius: 5px;
+        font-size: 17px;
+        padding: 0 4px;
+        border: none;
+        outline: none;
+        border: 2px solid transparent;
+        resize: none;
+
+        :focus {
+            border: 2px solid ${({ theme }) => theme.colors.defaultYellow};
+        }
+    }
+
+    #generalNotes_field {
+        min-height: 150px;
+    }
+
+
+
+
+    @media screen and (max-width: 500px){
+
+        form {
+            gap: 10px;
+        }
+
+        .flex {
+            gap: 8px;
+
+            label {
+                text-align: center;
+            }
+        }
+
+        input {
+            font-size: 16px;
+        }
+    }
   }
 `;
 

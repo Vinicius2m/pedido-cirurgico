@@ -1,20 +1,14 @@
-import { useEffect } from 'react';
 import { useCirurgicRequests } from '../../providers/cirurgicRequests';
 import OrdersContainer from './style';
 import { CirurgicRequestCard } from '../../components/CirurgicRequest';
 
 export const Orders = () => {
-  const { cirurgicRequests, getCirurgicRequests } = useCirurgicRequests();
-
-  useEffect(() => {
-    getCirurgicRequests();
-    console.log(cirurgicRequests);
-  }, [getCirurgicRequests]);
+  const { cirurgicRequests } = useCirurgicRequests();
 
   return (
     <OrdersContainer>
       <h2>Pedidos Cirúrgicos:</h2>
-      <div className="right_container">
+      <div className="cards-container">
         {cirurgicRequests.length ? (
           cirurgicRequests.map((cirurgicRequest) => (
             <CirurgicRequestCard

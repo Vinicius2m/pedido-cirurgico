@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 
 export const SLayout = styled.div`
-    display: flex;
+  display: flex;
 `;
 
 export const SMain = styled.main`
-    padding: 16px;
-    margin: 0 auto;
+  padding: 16px;
+  width: 100%;
 
-    h1 {
-        font-size: 14px;
-    }
+  h1 {
+    font-size: 14px;
+  }
 `;
