@@ -2,12 +2,30 @@ import styled from 'styled-components';
 
 export const Card = styled.div`
   background-color: ${({ theme }) => theme.colors.secondary};
+  border-radius: 10px;
+  padding: 5px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+
+  @media (max-width: 800px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    min-width: 250px;
+    width: 80%;
+  }
+
+  @media (max-width: 280px) {
+    min-width: 220px;
+  }
+`;
+
+export const CardContent = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
-  border-radius: 10px;
-  padding: 5px 10px;
-  max-height: 360px;
 
   span {
     font-size: 24px;
@@ -23,22 +41,12 @@ export const Card = styled.div`
     margin: 5px;
   }
 
-  .card-buttons-container {
-    display: flex;
-    justify-content: space-evenly;
-  }
+`;
 
-  @media (max-width: 800px) {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    min-width: 250px;
-    width: auto;
-  }
+export const CardButtonContainer = styled.div`
+  display: flex;
+  justify-content: space-evenly;
 
-  @media (max-width: 280px) {
-    min-width: 220px;
-  }
 `;
 
 export const CardButton = styled.button`
