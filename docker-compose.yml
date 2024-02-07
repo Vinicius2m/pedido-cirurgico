@@ -33,3 +33,12 @@ services:
       context: ./cirurgic-request-frontend
     ports:
       - 3000:5173
+    develop:
+      watch:
+        - action: sync
+          path: ./cirurgic-request-frontend
+          target: /home/node/frontend
+          ignore:
+            - node_modules/
+        - action: rebuild
+          path: package.json
