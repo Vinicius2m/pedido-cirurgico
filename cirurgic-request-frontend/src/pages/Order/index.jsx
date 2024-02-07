@@ -6,7 +6,7 @@ import moment from 'moment';
 import { useCirurgicRequests } from '../../providers/cirurgicRequests';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { BoldSpan, CardButton, Container } from './style';
+import * as S from './style';
 
 export const Order = () => {
   const [cirurgicRequest, setCirurgicRequest] = useState({});
@@ -106,38 +106,40 @@ export const Order = () => {
   }, [cirurgicRequest?.id, getOneCirurgicRequest, requestId]);
 
   return (
-    <Container>
+    <S.Container>
       <section>
         <h2>Pedido</h2>
 
         {!editMode ? (
           <>
             <p>
-              <BoldSpan>Médico:</BoldSpan> {cirurgicRequest.doctor}
+              <S.BoldSpan>Médico:</S.BoldSpan> {cirurgicRequest.doctor}
             </p>
             <p>
-              <BoldSpan>Paciente:</BoldSpan> {cirurgicRequest.patient}
+              <S.BoldSpan>Paciente:</S.BoldSpan> {cirurgicRequest.patient}
             </p>
             <p>
               <p>
-                <BoldSpan>Data da cirurgia:</BoldSpan>{' '}
+                <S.BoldSpan>Data da cirurgia:</S.BoldSpan>{' '}
                 {new Date(cirurgicRequest.surgeryDate).toLocaleDateString(
                   'pt-BR',
                 )}
               </p>
             </p>
             <p>
-              <BoldSpan>Hospital:</BoldSpan>{' '}
+              <S.BoldSpan>Hospital:</S.BoldSpan>{' '}
               <span>{cirurgicRequest.hospital}</span>
             </p>
             <p>
-              <BoldSpan>Sala:</BoldSpan> {cirurgicRequest.room}
+              <S.BoldSpan>Sala:</S.BoldSpan> {cirurgicRequest.room}
             </p>
             <p>
-              <BoldSpan>Procedimento:</BoldSpan> {cirurgicRequest.procedures}
+              <S.BoldSpan>Procedimento:</S.BoldSpan>{' '}
+              {cirurgicRequest.procedures}
             </p>
             <p>
-              <BoldSpan>Observações:</BoldSpan> {cirurgicRequest.generalNotes}
+              <S.BoldSpan>Observações:</S.BoldSpan>{' '}
+              {cirurgicRequest.generalNotes}
             </p>
             <div className="card-buttons-container">
               <button
@@ -146,9 +148,9 @@ export const Order = () => {
               >
                 Remover
               </button>
-              <CardButton isDisabled={false} onClick={handleEdit}>
+              <S.CardButton isDisabled={false} onClick={handleEdit}>
                 Editar
-              </CardButton>
+              </S.CardButton>
             </div>
           </>
         ) : (
@@ -226,17 +228,17 @@ export const Order = () => {
               <button id="cancel-button" onClick={() => setEditMode(false)}>
                 Cancelar
               </button>
-              <CardButton
+              <S.CardButton
                 isDisabled={isFormEmpty}
                 disabled={isFormEmpty}
                 type="submit"
               >
                 Confirmar
-              </CardButton>
+              </S.CardButton>
             </div>
           </form>
         )}
       </section>
-    </Container>
+    </S.Container>
   );
 };

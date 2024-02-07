@@ -1,14 +1,14 @@
 import { useCirurgicRequests } from '../../providers/cirurgicRequests';
-import { OrdersContainer, CardsContainer } from './style';
+import * as S from './style';
 import { CirurgicRequestCard } from '../../components/CirurgicRequest';
 
 export const Orders = () => {
   const { cirurgicRequests } = useCirurgicRequests();
 
   return (
-    <OrdersContainer>
+    <S.OrdersContainer>
       <h2>Pedidos Cirúrgicos:</h2>
-      <CardsContainer>
+      <S.CardsContainer>
         {cirurgicRequests.length ? (
           cirurgicRequests.map((cirurgicRequest) => (
             <CirurgicRequestCard
@@ -19,7 +19,7 @@ export const Orders = () => {
         ) : (
           <p>Nenhum pedido encontrado</p>
         )}
-      </CardsContainer>
-    </OrdersContainer>
+      </S.CardsContainer>
+    </S.OrdersContainer>
   );
 };

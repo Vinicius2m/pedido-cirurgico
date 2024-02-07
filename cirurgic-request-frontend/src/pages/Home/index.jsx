@@ -1,5 +1,5 @@
 import { DashboardForm } from '../../components/UserDashboardForm';
-import { Container } from './style';
+import * as S from './style';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
@@ -52,7 +52,7 @@ export const Home = () => {
   };
 
   return (
-    <Container>
+    <S.Container>
       <DashboardForm>
         <h2> Novo Pedido Cirúrgico</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -140,6 +140,6 @@ export const Home = () => {
           <button type="submit">Adicionar</button>
         </form>
       </DashboardForm>
-    </Container>
+    </S.Container>
   );
 };

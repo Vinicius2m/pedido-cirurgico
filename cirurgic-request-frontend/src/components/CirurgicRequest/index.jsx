@@ -1,11 +1,5 @@
 import { useCirurgicRequests } from '../../providers/cirurgicRequests';
-import {
-  Card,
-  CardButton,
-  DeleteButton,
-  CardContent,
-  CardButtonContainer,
-} from './style';
+import * as S from './style';
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 
@@ -22,8 +16,8 @@ export const CirurgicRequestCard = ({ cirurgicRequest }) => {
   };
 
   return (
-    <Card>
-      <CardContent>
+    <S.Card>
+      <S.CardContent>
         <span>Paciente: {cirurgicRequest.patient} </span>
         <p>Médico: {cirurgicRequest.doctor} </p>
         <p>Procedimento: {cirurgicRequest.procedures} </p>
@@ -32,22 +26,22 @@ export const CirurgicRequestCard = ({ cirurgicRequest }) => {
           {new Date(cirurgicRequest.surgeryDate).toLocaleDateString('pt-BR')}{' '}
         </p>
         <p>Hospital: {cirurgicRequest.hospital} </p>
-      </CardContent>
-      <CardButtonContainer>
-        <DeleteButton
+      </S.CardContent>
+      <S.CardButtonContainer>
+        <S.DeleteButton
           onClick={() => handleRemove(cirurgicRequest.id)}
           id="delete"
         >
           Remover
-        </DeleteButton>
-        <CardButton
+        </S.DeleteButton>
+        <S.CardButton
           onClick={() => handleDetails(cirurgicRequest.id)}
           id="details"
         >
           Detalhes
-        </CardButton>
-      </CardButtonContainer>
-    </Card>
+        </S.CardButton>
+      </S.CardButtonContainer>
+    </S.Card>
   );
 };
 

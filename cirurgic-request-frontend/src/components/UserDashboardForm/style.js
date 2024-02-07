@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Container = styled.div`
+export const Container = styled.div`
 
   width: 55vw;
   min-width: 260px;
@@ -118,5 +118,3 @@ const Container = styled.div`
 
 
 `;
-
-export default Container;

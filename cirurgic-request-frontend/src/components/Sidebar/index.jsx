@@ -7,16 +7,7 @@ import {
   FiArrowUp,
 } from 'react-icons/fi';
 import { useLocation } from 'react-router-dom';
-import {
-  Divider,
-  SLink,
-  LinkContainer,
-  LinkIcon,
-  LinkLabel,
-  SSidebar,
-  SidebarButton,
-  Title,
-} from './style';
+import * as S from './style';
 
 export const Sidebar = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -27,58 +18,58 @@ export const Sidebar = () => {
   };
 
   return (
-    <SSidebar isOpen={sidebarOpen}>
+    <S.SSidebar isOpen={sidebarOpen}>
       <>
-        <SidebarButton
+        <S.SidebarButton
           isOpen={sidebarOpen}
           onClick={() => setSidebarOpen((p) => !p)}
         >
           <FiChevronsLeft />
-        </SidebarButton>
+        </S.SidebarButton>
       </>
-      <Title to="/">
-        <LinkIcon>
+      <S.Title to="/">
+        <S.LinkIcon>
           <FiActivity />
-        </LinkIcon>
+        </S.LinkIcon>
         {sidebarOpen && (
           <>
-            <LinkLabel>App Pedidos Cirúrgicos</LinkLabel>
+            <S.LinkLabel>App Pedidos Cirúrgicos</S.LinkLabel>
           </>
         )}
-      </Title>
-      <Divider />
+      </S.Title>
+      <S.Divider />
       {linksArray.map(({ icon, label, to }) => (
-        <LinkContainer key={label} isActive={pathname === to}>
-          <SLink to={to} style={!sidebarOpen ? { width: `fit-content` } : {}}>
-            <LinkIcon>{icon}</LinkIcon>
+        <S.LinkContainer key={label} isActive={pathname === to}>
+          <S.SLink to={to} style={!sidebarOpen ? { width: `fit-content` } : {}}>
+            <S.LinkIcon>{icon}</S.LinkIcon>
             {sidebarOpen && (
               <>
-                <LinkLabel>{label}</LinkLabel>
+                <S.LinkLabel>{label}</S.LinkLabel>
               </>
             )}
-          </SLink>
-        </LinkContainer>
+          </S.SLink>
+        </S.LinkContainer>
       ))}
-      <Divider />
-      <LinkContainer
+      <S.Divider />
+      <S.LinkContainer
         style={{
           position: 'fixed',
           bottom: 0,
           width: sidebarOpen ? '130px' : '50px',
         }}
       >
-        <SLink onClick={handleScrollToTop}>
-          <LinkIcon>
+        <S.SLink onClick={handleScrollToTop}>
+          <S.LinkIcon>
             <FiArrowUp />
-          </LinkIcon>
+          </S.LinkIcon>
           {sidebarOpen && (
             <>
-              <LinkLabel>Ir ao Topo</LinkLabel>
+              <S.LinkLabel>Ir ao Topo</S.LinkLabel>
             </>
           )}
-        </SLink>
-      </LinkContainer>
-    </SSidebar>
+        </S.SLink>
+      </S.LinkContainer>
+    </S.SSidebar>
   );
 };
 

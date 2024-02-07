@@ -1,8 +1,8 @@
-import Container from './style';
+import * as S from './style';
 import PropTypes from 'prop-types';
 
 export const DashboardForm = ({ children }) => {
-  return <Container>{children}</Container>;
+  return <S.Container>{children}</S.Container>;
 };
 
 DashboardForm.propTypes = {
