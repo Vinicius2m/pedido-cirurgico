@@ -10,7 +10,16 @@ import api from '../../services/api';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-export const CirurgicRequestsContext = createContext();
+const InitialState = {
+  cirurgicRequests: [],
+  getCirurgicRequests: async () => {},
+  getOneCirurgicRequest: async () => {},
+  createCirurgicRequest: () => {},
+  updateCirurgicRequest: async () => {},
+  removeCirurgicRequest: () => {},
+};
+
+export const CirurgicRequestsContext = createContext(InitialState);
 
 export const CirurgicRequestsProvider = ({ children }) => {
   const [cirurgicRequests, setCirurgicRequests] = useState([]);
@@ -22,8 +31,10 @@ export const CirurgicRequestsProvider = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    getCirurgicRequests();
-  }, [getCirurgicRequests]);
+    if (!cirurgicRequests?.length) {
+      getCirurgicRequests();
+    }
+  }, [cirurgicRequests?.length, getCirurgicRequests]);
 
   const getOneCirurgicRequest = useCallback(async (id) => {
     const response = await api.get(`/cirurgic-requests/${id}`);
