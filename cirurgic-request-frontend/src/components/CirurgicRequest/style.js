@@ -56,7 +56,7 @@ export const CardButton = styled.button`
   font-size: 16px;
   font-weight: 600;
   border: transparent;
-  margin: 10px 0;
+  margin: 15px 0;
   background-color: ${({ theme }) => theme.colors.defaultYellow};
   color: ${({ theme }) => theme.colors.dark};
 
