@@ -8,6 +8,7 @@ export const Card = styled.div`
   flex-direction: column;
   justify-content: space-between;
   width: 100%;
+  height: min-content;
 
   @media (width <= 800px) {
     display: flex;
