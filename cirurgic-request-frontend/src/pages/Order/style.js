@@ -41,14 +41,9 @@ width: 100%;
     }
 
     #cancel-button {
-      background: ${({ theme }) => theme.colors.defaultYellow};
-      color: ${({ theme }) => theme.colors.dark};
       height: 40px;
       width: 130px;
       border: none;
-      font-weight: bold;
-      border-radius: 10px;
-      font-size: 16px;
       margin-top: 20px;
       border-radius: 10px;
       font-size: 16px;
@@ -171,10 +166,9 @@ export const BoldSpan = styled.span`
 `;
 
 export const CardButton = styled.button`
-  background-color: ${({ theme, isDisabled }) => (isDisabled ? theme.colors.lightGray : theme.colors.defaultYellow)};
-  color: ${({ theme, isDisabled }) => (isDisabled ? theme.colors.darkGray : theme.colors.dark)};
-
-  cursor: ${({ isDisabled }) => (isDisabled ? 'not-allowed' : 'pointer')};
+  background: ${({ theme }) => theme.colors.defaultYellow};
+  color: ${({ theme }) => theme.colors.dark};
+  cursor: pointer;
   height: 40px;
   width: 130px;
   border: none;
@@ -184,6 +178,13 @@ export const CardButton = styled.button`
   margin-top: 20px;
 
   &:hover {
-    filter: ${({ isDisabled }) => (isDisabled ? 'none' : 'brightness(0.9)')};
+    filter: brightness(0.9);
+  }
+
+  &:disabled {
+    background: ${({ theme }) => theme.colors.lightGray};
+    color: ${({ theme }) => theme.colors.darkGray};
+    cursor: not-allowed;
+    filter: none;
   }
 `;

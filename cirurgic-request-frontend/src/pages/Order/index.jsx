@@ -148,9 +148,7 @@ export const Order = () => {
               >
                 Remover
               </button>
-              <S.CardButton isDisabled={false} onClick={handleEdit}>
-                Editar
-              </S.CardButton>
+              <S.CardButton onClick={handleEdit}>Editar</S.CardButton>
             </div>
           </>
         ) : (
@@ -228,11 +226,7 @@ export const Order = () => {
               <button id="cancel-button" onClick={() => setEditMode(false)}>
                 Cancelar
               </button>
-              <S.CardButton
-                isDisabled={isFormEmpty}
-                disabled={isFormEmpty}
-                type="submit"
-              >
+              <S.CardButton disabled={isFormEmpty} type="submit">
                 Confirmar
               </S.CardButton>
             </div>
