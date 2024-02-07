@@ -7,36 +7,36 @@ import InputMask from 'react-input-mask';
 import moment from 'moment';
 import { useCirurgicRequests } from '../../providers/cirurgicRequests';
 
+const schema = yup.object().shape({
+  doctor: yup.string().required('*Nome obrigatório'),
+  patient: yup.string().required('*Nome obrigatória'),
+  surgeryDate: yup
+    .date('*Data inválida')
+    .nullable()
+    .transform((value, originalValue) => {
+      if (
+        typeof originalValue === 'string' &&
+        (originalValue === '' ||
+          originalValue === '__/__/____' ||
+          originalValue.includes('_'))
+      )
+        return null;
+      const isValid = moment(originalValue, 'DD/MM/YYYY', true).isValid();
+      return isValid ? moment(originalValue, 'DD/MM/YYYY').toDate() : null;
+    })
+    .min(moment().startOf('day').toDate(), '*Data deve ser hoje ou no futuro')
+    .test('is-future', '*Data deve ser hoje ou no futuro', (value) => {
+      return value && moment(value).isSameOrAfter(moment().startOf('day'));
+    })
+    .required('*Data obrigatória'),
+  procedures: yup.string().required('*Procedimentos obrigatórios'),
+  hospital: yup.string().required('*Hospital obrigatório'),
+  room: yup.string().required('*Sala obrigatória'),
+  generalNotes: yup.string().required('*Observações obrigatórias'),
+});
+
 export const Home = () => {
   const { createCirurgicRequest } = useCirurgicRequests();
-
-  const schema = yup.object().shape({
-    doctor: yup.string().required('*Nome obrigatório'),
-    patient: yup.string().required('*Nome obrigatória'),
-    surgeryDate: yup
-      .date('*Data inválida')
-      .nullable()
-      .transform((value, originalValue) => {
-        if (
-          typeof originalValue === 'string' &&
-          (originalValue === '' ||
-            originalValue === '__/__/____' ||
-            originalValue.includes('_'))
-        )
-          return null;
-        const isValid = moment(originalValue, 'DD/MM/YYYY', true).isValid();
-        return isValid ? moment(originalValue, 'DD/MM/YYYY').toDate() : null;
-      })
-      .min(moment().startOf('day').toDate(), '*Data deve ser hoje ou no futuro')
-      .test('is-future', '*Data deve ser hoje ou no futuro', (value) => {
-        return value && moment(value).isSameOrAfter(moment().startOf('day'));
-      })
-      .required('*Data obrigatória'),
-    procedures: yup.string().required('*Procedimentos obrigatórios'),
-    hospital: yup.string().required('*Hospital obrigatório'),
-    room: yup.string().required('*Sala obrigatória'),
-    generalNotes: yup.string().required('*Observações obrigatórias'),
-  });
 
   const {
     register,
