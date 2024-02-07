@@ -6,11 +6,8 @@ export const SSidebar = styled.div`
     background: ${({ theme }) => theme.colors.secondary};
     min-height: 100vh;
     padding: 24px;
-
     display: flex;
     flex-direction: column;
-
-
     position: relative;
 `;
 
@@ -28,7 +25,6 @@ export const SidebarButton = styled.button`
     cursor: pointer;
     color: ${({ theme }) => theme.colors.light};
     font-size: 64px;
-
     transform: ${({ isOpen }) => (!isOpen ? `rotate(180deg)` : `initial`)};
 `;
 

@@ -6,11 +6,10 @@ export const GlobalStyles = createGlobalStyle`
         padding:0;
         box-sizing: border-box;
         outline: none;
-        font-family: 'Nunito', sans-serif;
+        font-family: Nunito, sans-serif;
     }
 
     .Toastify__toast-theme--colored.Toastify__toast--success {
-        color: ${({ theme }) => theme.colors.toastifyColorSuccess};
         background: ${({ theme }) => theme.colors.defaultYellow};
         border: 2px solid ${({ theme }) => theme.colors.dark};
         border-radius: 10px;
@@ -21,13 +20,11 @@ export const GlobalStyles = createGlobalStyle`
         }
 
         .Toastify__close-button--colored {
-
             color: ${({ theme }) => theme.colors.dark};
         }
     }
 
     .Toastify__toast-theme--colored.Toastify__toast--error, .Toastify__toast-theme--colored.Toastify__toast--warning {
-        color: ${({ theme }) => theme.colors.toastifyColorSuccess};
         background: ${({ theme }) => theme.colors.dark};
         border: 2px solid ${({ theme }) => theme.colors.defaultYellow};
         border-radius: 10px;
@@ -38,7 +35,6 @@ export const GlobalStyles = createGlobalStyle`
         }
 
         .Toastify__close-button--colored {
-
             color: ${({ theme }) => theme.colors.dark};
         }
     }

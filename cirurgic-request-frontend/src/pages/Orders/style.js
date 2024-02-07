@@ -16,13 +16,14 @@ export const OrdersContainer = styled.div`
           opacity: 0;
           transform: scale(0.5);
       }
+
       70% {
           opacity: 1;
           transform: scale(1.05);
       }
   }
 
-  @media screen and (max-width: 500px){
+  @media screen and (width <= 500px){
     .cards-container {
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       padding: 20px 0;
@@ -36,7 +37,7 @@ export const CardsContainer = styled.div`
   grid-gap: 20px;
   justify-items: center;
   justify-content: center;
-  padding: 20px 20px;
+  padding: 20px;
   min-height: calc(100vh - 140px);
 
   > :nth-child(even){
@@ -47,7 +48,7 @@ export const CardsContainer = styled.div`
       animation: card_anim .5s 1 ease-in-out;
   }
 
-   @media screen and (max-width: 500px){
+   @media screen and (width <= 500px){
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     padding: 20px 0;
 

@@ -13,7 +13,7 @@ export const Container = styled.div`
   text-align: center;
   display: flex;
   flex-direction: column;
-  filter: drop-shadow(0px 6px 5px #3F3B3B);
+  filter: drop-shadow(0 6px 5px #3F3B3B);
 
   form {
       width: 100%;
@@ -47,7 +47,6 @@ export const Container = styled.div`
       border-radius: 5px;
       font-size: 17px;
       padding: 0 4px;
-      border: none;
       outline: none;
       border: 2px solid transparent;
       resize: none;
@@ -97,8 +96,7 @@ export const Container = styled.div`
 
 
 
-  @media screen and (max-width: 500px){
-
+  @media screen and (width <= 500px){
       form {
           gap: 10px;
       }

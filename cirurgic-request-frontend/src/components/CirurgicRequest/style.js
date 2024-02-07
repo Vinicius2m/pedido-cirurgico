@@ -9,7 +9,7 @@ export const Card = styled.div`
   justify-content: space-between;
   width: 100%;
 
-  @media (max-width: 800px) {
+  @media (width <= 800px) {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -17,7 +17,7 @@ export const Card = styled.div`
     width: 80%;
   }
 
-  @media (max-width: 280px) {
+  @media (width <= 280px) {
     min-width: 220px;
   }
 `;
@@ -63,8 +63,10 @@ export const CardButton = styled.button`
   &:hover {
     filter: brightness(0.9);
   }
-  @media (max-width: 800px) {
+
+  @media (width <= 800px) {
     width: 90px;
+
     &:hover {
       filter: unset;
     }
@@ -82,7 +84,8 @@ export const AchievedButton = styled.button`
   border: 2px solid ${({ theme }) => theme.colors.light};
   color: ${({ theme }) => theme.colors.light};
   cursor: not-allowed;
-  @media (max-width: 800px) {
+
+  @media (width <= 800px) {
     width: 90px;
   }
 `;
@@ -101,8 +104,10 @@ export const DeleteButton = styled.button`
   &:hover {
     filter: brightness(0.9);
   }
-  @media (max-width: 800px) {
+
+  @media (width <= 800px) {
     width: 90px;
+
     &:hover {
       filter: unset;
     }

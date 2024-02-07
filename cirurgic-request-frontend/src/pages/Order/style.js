@@ -17,7 +17,7 @@ width: 100%;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    filter: drop-shadow(0px 6px 5px #3F3B3B);
+    filter: drop-shadow(0 6px 5px #3F3B3B);
 
     h2 {
       text-align: center;
@@ -43,7 +43,6 @@ width: 100%;
     #cancel-button {
       height: 40px;
       width: 130px;
-      border: none;
       margin-top: 20px;
       border-radius: 10px;
       font-size: 16px;
@@ -56,8 +55,9 @@ width: 100%;
         filter: brightness(0.9);
       }
 
-      @media (max-width: 800px) {
+      @media (width <= 800px) {
         width: 90px;
+
         &:hover {
           filter: unset;
         }
@@ -69,10 +69,6 @@ width: 100%;
       color: ${({ theme }) => theme.colors.light};
       height: 40px;
       width: 130px;
-      border: none;
-      font-weight: bold;
-      border-radius: 10px;
-      font-size: 16px;
       border-radius: 10px;
       font-size: 16px;
       font-weight: 600;
@@ -82,8 +78,9 @@ width: 100%;
         filter: brightness(0.9);
       }
 
-      @media (max-width: 800px) {
+      @media (width <= 800px) {
         width: 130px;
+
         &:hover {
           filter: unset;
         }
@@ -122,7 +119,6 @@ width: 100%;
         border-radius: 5px;
         font-size: 17px;
         padding: 0 4px;
-        border: none;
         outline: none;
         border: 2px solid transparent;
         resize: none;
@@ -139,8 +135,7 @@ width: 100%;
 
 
 
-    @media screen and (max-width: 500px){
-
+    @media screen and (width <= 500px){
         form {
             gap: 10px;
         }
