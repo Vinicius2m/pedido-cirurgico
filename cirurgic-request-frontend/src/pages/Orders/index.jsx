@@ -1,5 +1,5 @@
 import { useCirurgicRequests } from '../../providers/cirurgicRequests';
-import OrdersContainer from './style';
+import { OrdersContainer, CardsContainer } from './style';
 import { CirurgicRequestCard } from '../../components/CirurgicRequest';
 
 export const Orders = () => {
@@ -8,7 +8,7 @@ export const Orders = () => {
   return (
     <OrdersContainer>
       <h2>Pedidos Cirúrgicos:</h2>
-      <div className="cards-container">
+      <CardsContainer>
         {cirurgicRequests.length ? (
           cirurgicRequests.map((cirurgicRequest) => (
             <CirurgicRequestCard
@@ -19,7 +19,7 @@ export const Orders = () => {
         ) : (
           <p>Nenhum pedido encontrado</p>
         )}
-      </div>
+      </CardsContainer>
     </OrdersContainer>
   );
 };
