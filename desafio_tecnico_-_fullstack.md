@@ -59,7 +59,4 @@ Lembre-se de seguir as melhores práticas de desenvolvimento, incluindo a modula
     Prazo máximo de 72 horas (corridas)  a partir do recebimento da solicitação. Caso o prazo esteja se encerrando, pode ser enviado o arquivo zipado com os códigos 
     realizados até o momento da entrega.
 
-  * Como entregar?
-    Envie o seu teste compactado para tiago.morais@a3data.com.br ou pode enviar o link do giihub com o repositório, boa sorte!!!
-
 
